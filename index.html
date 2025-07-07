@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login - BitCatcher</title>
+  <title>BitCatcher - Login</title>
   <style>
     body {
       margin: 0;
@@ -31,23 +31,25 @@
       padding: 10px 20px;
       font-family: monospace;
       font-size: 1em;
+      cursor: pointer;
     }
   </style>
 </head>
 <body>
 
   <h2>Ingresá tu ID para comenzar</h2>
-  <input type="text" id="userId" placeholder="Ej: 001" />
+  <input type="text" id="userId" placeholder="Ej: 001" autofocus />
   <button onclick="login()">Entrar</button>
 
   <script>
     function login() {
       const id = document.getElementById("userId").value.trim();
-      if (id) {
-        window.location.href = `BitCatcher.html?id=${encodeURIComponent(id)}`;
-      } else {
+      if (!id) {
         alert("Por favor ingresá un ID válido.");
+        return;
       }
+      // Redirige al juego BitCatcher pasando el ID
+      window.location.href = `bitcatcher.html?id=${encodeURIComponent(id)}`;
     }
   </script>
 
